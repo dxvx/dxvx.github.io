@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+    
+    <title>Resume</title>
+    
+    <link href="style.css?rev=01&moo1=123" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js?s=1"></script>
+    <script src="./my.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        
+        $(document).ready(function () {
+            
+            $("#aEmail").html( window.atob("ZHVrcmV5YW5nPGFyZWE+QDxzZmZmPmdtYWlsLmNvbQo=") );
+            $('#aInvention').html(getInvention());
+            $('#aTelephone').html(getTelephone1());
+            $('#aBeliefs').html(getBelief());
+            document.title = window.atob("V2VubGluJ3MgT25saW5lIFJlc3VtZQo=");
+            $('#aResumeTitle').html(window.atob("V2VubGluIFlhbmcK"));
+            $('#aNameWithCN').html(decodeURIComponent(window.atob("V2VubGluJTIwWWFuZyglRTYlOTYlODclRTYlOUUlOTclMjAlRTYlOUQlQTgp")));
+            $('#imgAvatar').attr("src",myAvatar);
+
+        });
+
+        function getBelief() {
+            var bStrs = [
+                'Talk is cheap, show me the #.',
+                // 'Coding first, then optimize it.',
+                // 'Stay hungry, stay foolish.',
+                'The quieter you become, the more you are able to hear…'
+            ];
+            return bStrs[parseInt(Math.random()*bStrs.length)];
+        }
+        function openSms(obj) {
+            window.location.href = "sms:"+obj.innerHTML;
+        }
+        function openTel(obj) {
+            window.location.href = "tel:"+obj.innerHTML;
+        }
+        function getMailAddress() {
+            var myMail = "ZHVrcmV5YW5nQGdtYWlsLmNvbQo=";
+            return window.atob(myMail);
+        }
+        function getTelephone1() {
+            var myPhone1  = "KCsxKTQwMiA2MDMgMjY5MAo=";
+            return window.atob(myPhone1);
+        }
+        function getTelephone86() {
+            var myPhone86 = "KCs4NikxNTYwMDAzNjA4OAo=";
+            return window.atob(myPhone86);
+        }
+        function openMailTo(){
+            window.location.href = "mailto:"+getMailAddress();
+        }
+        function getInvention() {
+            var str = "PEk+IlZ1bG5lcmFiaWxpdHkgU2Nhbm5pbmcgTWV0aG9kIGFuZCBEZXZpY2UgZm9yIFRlcm1pbmFsIFN5c3RlbTwvST4sIDIwMTcxMDIzNTYxNi4wLgo=";
+            return window.atob(str);
+        }
+    </script>
+    
+    <div id="resume">
+        <h1 class="resume-title" id="aResumeTitle">Hide Me</h1>
+         <div id="avatarBlock">
+            <img src="#" alt="" class="avatarImg" id="imgAvatar" />
+        </div> 
+        <div id="infoBlock">
+            <!-- <div class="print-download"><img style="width:16px;height:16px;margin-bottom:-4px;" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0ODguOSA0ODguOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDg4LjkgNDg4Ljk7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxnPgoJCTxwYXRoIHN0eWxlPSJmaWxsOiNBN0E5QUM7IiBkPSJNMTA4LjA1LDEzMC4yVjI1LjdjMC05LjIsNy40LTE2LjYsMTYuNi0xNi42aDIzOS40YzkuMiwwLDE2LjYsNy40LDE2LjYsMTYuNnYxMDQuNiIvPgoJCTxwYXRoIHN0eWxlPSJmaWxsOiNBN0E5QUM7IiBkPSJNMzY0LjE1LDQ3OS43aC0yMzkuNGMtOS4yLDAtMTYuNi03LjQtMTYuNi0xNi42VjI1MmgyNzIuN3YyMTEuMiAgICBDMzgwLjc1LDQ3Mi4zLDM3My4zNSw0NzkuNywzNjQuMTUsNDc5Ljd6Ii8+CgkJPHBhdGggZD0iTTQ4LjU1LDM4Mi44aDUwLjV2ODAuNGMwLDE0LjIsMTEuNSwyNS43LDI1LjcsMjUuN2gyMzkuNGMxNC4yLDAsMjUuNy0xMS41LDI1LjctMjUuN3YtODAuNGg1MC41ICAgIGMyMi4zLDAsNDAuNC0xOC4xLDQwLjQtNDAuNFYxNjEuNWMwLTIyLjMtMTguMS00MC40LTQwLjQtNDAuNGgtNTAuNlYyNS43YzAtMTQuMi0xMS41LTI1LjctMjUuNy0yNS43aC0yMzkuNCAgICBjLTE0LjIsMC0yNS43LDExLjUtMjUuNywyNS43djk1LjVoLTUwLjRjLTIyLjMsMC00MC40LDE4LjEtNDAuNCw0MC40djE4MC44QzguMTUsMzY0LjcsMjYuMjUsMzgyLjgsNDguNTUsMzgyLjh6IE0zNzEuNzUsNDYzLjEgICAgYzAsNC4yLTMuNCw3LjUtNy41LDcuNWgtMjM5LjVjLTQuMiwwLTcuNS0zLjQtNy41LTcuNVYyNjFoMjU0LjVWNDYzLjF6IE0xMTcuMTUsMjUuN2MwLTQuMiwzLjQtNy41LDcuNS03LjVoMjM5LjQgICAgYzQuMiwwLDcuNSwzLjQsNy41LDcuNXY5NS41aC0yNTQuNEMxMTcuMTUsMTIxLjIsMTE3LjE1LDI1LjcsMTE3LjE1LDI1Ljd6IE0yNi4zNSwxNjEuNWMwLTEyLjMsMTAtMjIuMiwyMi4yLTIyLjJoMzkxLjggICAgYzEyLjMsMCwyMi4yLDEwLDIyLjIsMjIuMnYxODAuOWMwLDEyLjMtMTAsMjIuMi0yMi4yLDIyLjJoLTUwLjVWMjUyYzAtNS00LjEtOS4xLTkuMS05LjFoLTI3Mi42Yy01LDAtOS4xLDQuMS05LjEsOS4xdjExMi43ICAgIGgtNTAuNWMtMTIuMywwLTIyLjItMTAtMjIuMi0yMi4yQzI2LjM1LDM0Mi41LDI2LjM1LDE2MS41LDI2LjM1LDE2MS41eiIvPgoJCTxwYXRoIGQ9Ik03Ny43NSwxOTkuOWMyLjQsMCw0LjctMSw2LjQtMi43YzEuNy0xLjcsMi42LTQsMi42LTYuNHMtMS00LjctMi42LTYuNGMtMS43LTEuNy00LTIuNy02LjQtMi43cy00LjcsMS02LjQsMi43ICAgIGMtMS43LDEuNy0yLjcsNC0yLjcsNi40czEsNC43LDIuNyw2LjRDNzMuMDUsMTk4LjksNzUuMzUsMTk5LjksNzcuNzUsMTk5Ljl6Ii8+CgkJPHBhdGggZD0iTTMxNC42NSwzNTYuOGgtMTQwLjRjLTUsMC05LjEsNC4xLTkuMSw5LjFzNC4xLDkuMSw5LjEsOS4xaDE0MC41YzUsMCw5LjEtNC4xLDkuMS05LjFTMzE5LjY1LDM1Ni44LDMxNC42NSwzNTYuOHoiLz4KCQk8cGF0aCBkPSJNMzE0LjY1LDQxM2gtMTQwLjRjLTUsMC05LjEsNC4xLTkuMSw5LjFzNC4xLDkuMSw5LjEsOS4xaDE0MC41YzUsMCw5LjEtNC4xLDkuMS05LjFDMzIzLjc1LDQxNywzMTkuNjUsNDEzLDMxNC42NSw0MTN6Ii8+CgkJPHBhdGggZD0iTTMxNC42NSwzMDAuNmgtMTQwLjRjLTUsMC05LjEsNC4xLTkuMSw5LjFzNC4xLDkuMSw5LjEsOS4xaDE0MC41YzUsMCw5LjEtNC4xLDkuMS05LjFTMzE5LjY1LDMwMC42LDMxNC42NSwzMDAuNnoiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"
+                /> <a href="javascript:window.print()">Print</a></div> -->
+                <div id="nameBlock" class="largeFont">
+                    <span class="name" id="aNameWithCN">Hide Me</span>
+           <!--          <em>(CYBERCZ)</em> -->
+                </div>
+                <div id="basicsBlock">
+                    <div class="contactBlock">
+                        <!-- <div class="certified">Coder || Blogger</div> -->
+                        <a class="email" onclick="openMailTo()" id="aEmail">thisisfake@gmail.com</a>
+                        <!-- <span class="divider">|</span> -->
+                        <br>
+                        <a class="phone" onclick="openSms(this)" id="aTelephone">(+91)92399182</a>
+                        <span class="address">|</span>
+                        <span class="address">Beijing, China</span>
+                    </div>
+                    <div id="profilesBlock">
+                        <span class="url"><span href="#">Security reseacher | Full-stack coder | DIY enthusiasts </span></span>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="sectionLine"></div>
+            
+            <div id="summaryBlock">
+                <div class="sectionName">
+                    <span>BRIEF INTRODUCE</span>
+                </div>
+                <div class="sectionContent">
+                    <!-- <p>Programmer by profession, blogger by soul</p> -->
+                    <!-- <p>Lunatic nerd with cringe humor <br>Weekend zombie</p> -->
+                    <!-- <p>Striving hard to make an impact, coding in shadows.</p> -->
+                    I'm a security researcher, currently focus on Android App/System/Kernel Driver security. In order to keep on my career in information security, I have begun to consider appropriate security research labs.
+                    <br>
+                    With the ability to work under great pressure, although have no experience in android vulnerability research, I got some awards and acknowledgements from Google and Huawei within one year after graduation.
+                    <br>
+                    <br>
+
+                    "<I id="aBeliefs"></I>"
+                    <!--
+                        <p><strong>Personal Opinions:</strong></p>
+                        <ul class="highlights">
+                            <li>College Sucks.Internet Rules.</li>
+                            <li>God doesn't Exist!(Still something exists)</li>
+                            <li>Introverted life is the best. (Low-key>loki)</li>
+                        </ul>
+                    -->
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            <div class="sectionLine"></div>
+            
+            
+            <div id="workexp">
+                <div class="sectionName">
+                    <span>WORK EXPERIENCE</span>
+                </div>
+                <div class="sectionContent">
+                    
+                    <ul class="highlights">
+                        <span class="myH1">Huawei (Department of PSIRT)</span>
+                        <br>
+                        <span class="title myH3">Senior Security Researcher | Sep, 2018 - PRESENT</span>
+                        <div class="profilesBlock">
+                            <li class="title">
+                                Android Vulnerability Research
+                            </li>
+                            <span class="detail">
+                                - Found severl security issues internally.
+                                <br>
+                                - Handle for XXX vulnerability reports, analyze does vulnerability exists and takes steps to respond, offer patch/fix advises.
+                                <br>
+                                - Build a database to manage vulnerability deatail.
+                            </span>
+                            <li class="title">
+                                Awards
+                            </li>
+                            <span class="detail">
+                                - Huawei Future-star and other internal awards.
+                            </span>
+                        </div>
+
+                    </ul>
+                    <ul class="highlights">
+                        <span class="myH1">Qihoo 360 (Department of Core Security)</span>
+                        <br>
+                        <span class="title myH3">Security Researcher | Mar, 2016 - Aug, 2018</span>
+                        <div class="profilesBlock">
+                            <li class="title">
+                                Android Security Research
+                            </li>
+                            <span class="detail">
+                                - Research and audit Android system security issue of Android application, system framework and kernel driver, including Java and C/C++ vulnerabilities.
+                                <br>
+                                - Hunt memory corruption and logical vulnerabilities, also fuzz some modules to improve efficiency.
+                                <br>
+                                - Develop <a href="https://shouji.360.cn/vulscanner.htm">Vulscan app</a> to detect if phone vendor fixed published vulnerabilities and assessment devices security level.(teamwork)
+                                <br>
+                                - <B>Global acknowledgements from <a href="https://source.android.com/security/overview/acknowledgements">Google</a> and <a href="https://www.huawei.com/nz/searchresult?keywords=wenlin">Huawei</a></B> by report security issues, list of some published CVEs.
+                                <br>
+                                <a href="https://source.android.com/security/bulletin/2016-10-01">CVE-2016-3918</a> 
+                                <a href="https://www.huawei.com/en/psirt/security-advisories/huawei-sa-20171025-01-overflow-en">CVE-2017-8169 CVE-2017-8170</a> 
+                                <a href="https://www.huawei.com/nz/psirt/security-advisories/2016/huawei-sa-20161215-01-smartphone-en">CVE-2016-8783</a> 
+                                <a href="https://source.android.com/security/bulletin/2017-04-01">CVE-2017-0577 CVE-2017-0580</a> 
+                                <a href="https://www.huawei.com/en/psirt/security-advisories/2017/huawei-sa-20170919-01-mtk-en">CVE-2017-8179 CVE-2017-8180 CVE-2017-8181</a> 
+                                <a href="https://www.huawei.com/en/psirt/security-advisories/huawei-sa-20171115-01-mtk-en">CVE-2017-8182 CVE-2017-8183 CVE-2017-8184</a> 
+                                <a href="https://www.huawei.com/en/psirt/security-advisories/huawei-sa-20180321-01-smartphone-en">CVE-2017-15325</a> 
+                                <a href="https://source.android.com/security/bulletin/2019-08-01">CVE-2019-2133</a>
+                                <br>
+                                - Invited by some security conference to make a speech.
+                                <br>
+                                <I>Android Vulnerability Detection</I>, Qihoo 360 QTest Conference, 2016
+                                <br>
+                                <I><a href="http://kcon.knownsec.com/2017/#page4">Android Driver Vulnerability Hunting Journey</a></I>, KCon Hacker Conference, 2017
+                                <br>
+                                <I><a href="https://www.anquanke.com/post/id/87040">Unveiling the Ecosystem of Android Security</a></I>, China Internet Security Conference(ISC), 2017 
+                            </span>
+                            <li class="title">
+                                Security Data Report Research
+                            </li>
+                            <span class="detail">
+                                - Writes the ecosystem of Android security report, finish all process from the original million data logs to the published documents.
+                                <br>
+                                - Design database structure, writes auxiliary scripts to help to handle data conversion of target data charts and dimensions by using SQL, Python, and PHP.
+                                <br>
+                                - Data visualization by Canvas(Highcharts, EChartjs), PowerPoints and Excel.
+                            </span>
+                        </div>  
+                    </ul>
+                </div>
+            </div>
+            <div class="sectionLine"></div>
+            <div id="education">
+                <div class="sectionName">
+                    <span>EDUCATION</span>
+                </div>
+                <div class="sectionContent">
+                    <div class="educationBlock">
+                        <span class="myH1">Jilin University | <span>Sep, 2012 - Jun, 2016</span></span>
+                        <div class="myH3">Bachelor of Network Security (Computer science) / GPA: 3.1/4.0</div>
+                    </div>
+                    <span class="title"># Projects during my college time.</span>
+                    <div class="profilesBlock">
+                        <li class="title">
+                            JluCTF online cybersecurity CTF platform
+                        </li>
+                        <span class="detail">
+                            - National Innovation Training Program.(Jul, 2014 - Apr, 2015)
+                            <br>
+                            - The standalone project, full-stack design and develop the platform from server code to the front UI, with ThinkPHP framework and Bootstrap, design the security module.
+
+                            <br>
+                            - Running for almost 4 years as college CTF platform.
+                            <br>
+                            
+                        </span>
+                        <li class="title">
+                            Step Counter App
+                        </li>
+                        <span class="detail">
+                            - Challenge Cup Program.(Feb, 2015 - Marm, 2015)
+                            <br>
+                            - The standalone project, full-stack, finishes step motivation counter by using a triaxial accelerometer.
+                        </span>
+                        <li class="title">
+                            Online experiment system based on hybrid virtualization
+                        </li>
+                        <span class="detail">
+                            - National Innovation Training Program.(Jul, 2015 - Apr, 2016)
+                            <br>
+                            - Technical leader, researched LXC, Hypervisor, and other virtualization, and learn KVM and Docker's core architecture, then built a virtualization platform based on both to achieve the distribution and control of containers.
+                            <br>
+                            </span>
+                        <li class="title">
+                            College cybersecurity maintenance
+                        </li>
+                        <span class="detail">
+                            - Maintenance of college cybersecurity, including audit web server code, attack traceability, etc.
+                            <br>
+                        </span>
+                    </div>
+                    <span class="title"># Awards</span>
+                    <div class="profilesBlock">
+                        <span class="detail">
+                            - Third of First Qihoo 360 National College Students Information Security Competition(Qihoo 360 CTF), May 2013.
+                            <br>
+                            - Champion and MVP of Second Qihoo 360 CTF(Preliminary), May 2014.
+                            <br>
+                            - Champion of Second Qihoo 360 CTF(Northeast Division), June 2014.
+                            <br>
+                            - Top ten of Third Qihoo 360 CTF, June 2015
+                            <br>
+                            - <a href="./microsoft.pdf" >Microsoft Certified Hyper-V Consulting Engineer</a>, Nov 2014.
+                            <br>
+                            - <I>"Hacker Defence"(黑客防线)</I>Magazine and <I>FreeBuf</I> Contributing Author.
+                            <br>
+                            - Twice scholarships and college excellent student award.                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+             
+            <div class="sectionLine"></div>
+
+              <div id="publication">
+                <div class="sectionName">
+                    <span>PUBLISHED WORK</span>
+                </div>
+                <div class="sectionContent">
+                    <div class="educationBlock">
+                        <span class="title">Paper </span><a href="http://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&dbname=CJFDLAST2016&filename=AQJS201604008&uid=WEEvREcwSlJHSldRa1FhdXNXa0d1Z3dCdDlTZHlJRnEzYTFCTlJzSmdFdz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!&v=MjU1MTZiSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUkxLZVplWnNGeTdrVXJ6T0pEekJmYkc0SDlmTXE0OUY="><I>"The Vulnerability Analysis and Security Enhancement of Docker"</I> published in Information Security and Technology, Wen-lin Y, Xi T, Jun-ting G, Shuo W., 2016;4:008. (Chinese).</a>
+                        <br>
+                        <span class="title">Invention patent </span><a href="http://www.pss-system.gov.cn/sipopublicsearch/inportal/i18n.shtml?params=902F004CA61084A284089435EAAEA94F59CC921A916ADCEB" id="aInvention"></a>
+                    </div>
+                   
+                </div>
+            </div>
+            
+            
+            <div class="sectionLine"></div>
+            
+            <div id="skills">
+                <div class="sectionName">
+                    <span>SKILLS</span>
+                </div>
+                <div class="sectionContent">
+                    <div class="skillBlock">
+                        <span class="title">Programming Languages:</span>
+                        <span>C/C++, JavaScript, PHP, Python, Java.</span>
+                    </div>
+                    <div class="skillBlock">
+                        <span class="title">Data visualization:</span>
+                        <span>Canvas(Highcharts, EChartjs, etc.), PowerPoints and Excel.</span>
+                    </div>
+                    
+                    <div class="skillBlock">
+                        <span class="title">Security Skills:</span>
+                        <span>Vulnerabilities hunt, including web application, operating system and kernel driver.</span>
+                    </div>
+                    <div class="skillBlock">
+                        <span class="title">Operating System:</span>
+                        <span>Windows, Linux, MacOS, Android and its app developments.</span>
+                    </div>
+                    <!-- <div class="skillBlock">
+                        <span class="title">Other Skills:</span>
+                        <span>Hardware setup and manipulation in Event-Management such as Wireless microphones, WIFI routers and projectors.</span>
+                    </div> -->
+                    
+                    
+                </div>
+            </div>
+            
+            
+            <div class="sectionLine"></div>
+            
+            <div id="languages">
+                <div class="sectionName">
+                    <span>LANGUAGES</span>
+                </div>
+                <div class="sectionContent">
+                    <div class="skillBlock">
+                        Chinese
+                        <em>(Native)</em>
+                    </div>
+                    <div class="skillBlock">
+                        English
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sectionLine"></div>
+            
+            <div id="interests">
+                <div class="sectionName">
+                    <span>INTERESTS</span>
+                </div>
+                <div class="sectionContent">
+                    &bull; Piano &bull; Cybersecurity &bull; Script lover &bull; Ping-pong &bull; 
+                </div>
+            </div>
+            
+            
+            <div class="sectionLine"></div>
+            
+            
+            
+            
+            <div class="colophon">
+<!--                 <div class="colophon-mark"></div>
+ -->                <strong>Last update:</strong> October 1, 2019
+            </div>
+            
+            
+        </div>
+        
+    </body>
+    
+    </html>
+    
