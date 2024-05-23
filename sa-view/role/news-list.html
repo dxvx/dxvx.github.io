@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>新闻列表</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 所有的 css & js 资源 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="../../static/sa.css"> 
+		<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+		<script src="https://unpkg.com/element-ui@2.13.0/lib/index.js"></script>
+		<script src="https://unpkg.com/http-vue-loader@1.4.2/src/httpVueLoader.js"></script>
+		<script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+		<script src="https://www.layuicdn.com/layer-v3.1.1/layer.js"></script>
+		<script src="../../static/sa.js"></script>
+	</head>
+	<body>
+		<div class="vue-box" style="display: none;" :style="'display: block;'">
+			<div class="c-panel">
+				<!-- 参数栏 -->
+				<div class="c-title">检索参数</div>
+				<el-form :inline="true" @submit.native.prevent>
+					<sa-item name="日期" type="date" v-model="p.date"></sa-item>
+					<sa-item name="顺序" v-model="p.in_date_order"></sa-item>
+					<sa-item name="类别" v-model="p.category"></sa-item>
+					<sa-item name="标题" v-model="p.title"></sa-item>
+					<sa-item name="摘要" type="textarea"  v-model="p.abstract"></sa-item>
+					<sa-item name="链接" v-model="p.url"></sa-item>
+					<el-button type="primary" icon="el-icon-plus" @click="add()">新增</el-button>
+					<!-- <el-button type="success" icon="el-icon-download" @click="export_data()">导出</el-button> -->
+				</el-form>
+				<!-- 数据列表 -->
+				<el-table class="data-table" ref="data-table" :data="dataList" size="small">
+                    <el-table-column label="日期" width="100px">
+						<template slot-scope="s">
+							<el-input type="date" v-if="s.row.is_update" v-model="s.row.date"></el-input>
+							<span v-else>{{s.row.date}}</span>
+						</template>
+					</el-table-column>
+                    <el-table-column label="顺序" width="50px">
+						<template slot-scope="s">
+							<el-input v-if="s.row.is_update" v-model="s.row.in_date_order"></el-input>
+							<span v-else>{{s.row.in_date_order}}</span>
+						</template>
+					</el-table-column>
+
+                    <el-table-column label="类别" width="70px">
+						<template slot-scope="s">
+							<el-input v-if="s.row.is_update" v-model="s.row.category"></el-input>
+							<span v-else>{{s.row.category}}</span>
+						</template>
+					</el-table-column>
+
+                    <el-table-column label="标题" width="150px">
+						<template slot-scope="s">
+							<el-input v-if="s.row.is_update" v-model="s.row.title"></el-input>
+							<span v-else>{{s.row.title}}</span>
+						</template>
+					</el-table-column>
+
+                    <el-table-column label="摘要" width="150px">
+						<template slot-scope="s">
+							<el-input type="textarea" v-if="s.row.is_update" v-model="s.row.abstract"></el-input>
+							<span v-else>{{s.row.abstract}}</span>
+						</template>
+					</el-table-column>
+
+                    <el-table-column label="链接" width="150px">
+						<template slot-scope="s">
+							<el-input v-if="s.row.is_update" v-model="s.row.url"></el-input>
+							<span v-else>{{s.row.url}}</span>
+						</template>
+					</el-table-column>
+
+					<el-table-column label="操作" width="220px">
+						<template slot-scope="s">
+							<el-button type="text" @click="update(s.row)">
+								<span :style="s.row.is_update ? 'color: red;' : ''">修改</span>
+							</el-button>
+							<el-button type="text" @click="del(s.row)">删除</el-button>
+						</template>
+					</el-table-column>
+				</el-table>
+                <el-form :inline="true" @submit.native.prevent>
+					<sa-item name="摘要" type="textarea"  v-model="exported_html"></sa-item>
+					<el-button type="success" icon="el-icon-download" @click="export_data()">导出</el-button>
+				</el-form>
+				<!-- ------------- 分页 ------------- -->
+			</div>
+		</div>
+		<script src="./mock-data.js"></script>
+        <script>
+			var app = new Vue({
+				components: {
+					"sa-item": httpVueLoader('../../sa-frame/com/sa-item.vue'),		
+				},
+				el: '.vue-box',
+				data: {
+                    ref_no: 0,
+                    pageNo: 0,
+					sa: sa, 	// 超级对象
+                    exported_html: "",
+					p: {	// 查询参数 
+                        "id": "",
+						"date": "",
+                        "in_date_order": "",
+                        "category": "",
+                        "title": "",
+                        "abstract": "",
+                        "url": "",
+                        "is_update": false,
+					},
+                    templates_html: {
+                        "news_template_catalogue_category":"",
+                        "news_template_catalogue_title" : "", 
+                        "news_template_list" : "", 
+                        "news_template_test" : "", 
+                        "news_template" : "", 
+                    },
+					dataList: [],	// 数据集合
+				},
+				methods: {
+                    template_render: function(template_text, data){
+                        for(var key in data){
+                            
+                            template_text = template_text.replaceAll('{v_template_'+key+'}' , ''+data[key] )
+                        }
+                        return template_text;
+                    },
+                    get_template_html: function(file_name){
+                        return  $.ajax({
+                            url: "./templates/"+file_name+".html",
+                            async: false,
+                            success: function (data){
+                                return data;
+                            }
+                        }).responseText;
+                    },
+                    init_templates: function(){
+                        this.templates_html.news_template_catalogue_category = this.get_template_html("news_template_catalogue_category");
+                        this.templates_html.news_template_catalogue_title = this.get_template_html("news_template_catalogue_title");
+                        this.templates_html.news_template_list = this.get_template_html("news_template_list");
+                        this.templates_html.news_template_test = this.get_template_html("news_template_test");
+                        this.templates_html.news_template = this.get_template_html("news_template");
+                        console.log(this.templates_html);
+                    },
+                    export_data: function(){
+                        console.log(app.dataList);
+                        var daily_news_all = JSON.parse( JSON.stringify(app.dataList));
+                        daily_news_all = daily_news_all.sort((a,b) => a.in_date_order - b.in_date_order);
+
+                        console.log(daily_news_all);
+                        var pre_category = '';
+                        var news_html_catalogue = '';
+                        var news_html_list = '';
+                        
+                        for(var i = 0; i < daily_news_all.length; i++){
+                            var daily_news = daily_news_all[i];
+                            // 生成目录部分
+                            if( pre_category != daily_news.category){
+                                news_html_catalogue += this.template_render( this.templates_html.news_template_catalogue_category , daily_news)
+                            }
+                            news_html_catalogue += this.template_render( this.templates_html.news_template_catalogue_title, daily_news)
+                            pre_category = daily_news['category']
+                            
+                            // # 生成列表部分
+                            news_html_list += this.template_render( this.templates_html.news_template_list, daily_news)
+                        }
+                        
+                        var news_html_full = this.template_render(this.templates_html.news_template, {'daily_news_catalogue': news_html_catalogue, 'daily_news_list': news_html_list} )
+                        app.exported_html = news_html_full;
+                        console.log(news_html_full);
+                    },
+                    reset_p: function(){
+                        app.p = {	// 查询参数 
+                            "id": "",
+                            "date": "",
+                            "in_date_order": "",
+                            "category": "",
+                            "title": "",
+                            "abstract": "",
+                            "url": "",
+                            "is_update": false,
+                        };
+                    },
+					// 修改
+					update: function (data) {
+                        console.log(data, data.is_update);
+						if(data.is_update != true) {
+							data.is_update = true;
+						} else {
+                            data.is_update = false;
+						}
+                        // sa.f5TableHeight();		// 刷新表格高度 
+					},
+					// 删除
+					del: function (data) {
+						sa.confirm('是否删除，此操作不可撤销', function(){
+                            sa.arrayDelete(app.dataList, data);
+                            sa.ok('删除成功');
+                            sa.f5TableHeight();		// 刷新表格高度 
+						})
+					},
+					// 添加
+					add: function () {
+                        var data = JSON.parse(JSON.stringify(app.p));
+                        data.id = app.ref_no;
+                        app.dataList.push(data);
+                        this.reset_p();
+                        app.ref_no++;
+                        sa.f5TableHeight();		// 刷新表格高度 
+					}, 
+					// 修改菜单
+					menu_setup: function(data){
+						var title = '为 ['+data.role_name+'] 分配权限';
+						sa.showIframe(title, 'menu-setup.html?role_id=' + data.id, '700px', '600px');
+					}
+				},
+				created: function(){
+                    this.init_templates();
+					sa.onInputEnter();		// 监听输入框的回车事件，执行查询  
+				}
+			})
+		</script>
+	</body>
+</html>
